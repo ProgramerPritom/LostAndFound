@@ -15,8 +15,8 @@ import { toast } from "react-toastify";
 
 function AuthForm({ isLogin, setAuthenticated }) {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState(isLogin ? "kafy_ahmed@gmail.com" : "");
+  const [password, setPassword] = useState(isLogin ? "123456" : "");
   const [confirmPassword, setConfirmPassowrd] = useState("");
   const [displayName, setDisplayName] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
@@ -151,7 +151,7 @@ function AuthForm({ isLogin, setAuthenticated }) {
         label: isLogin ? "Email" : "Full Name",
         type: isLogin ? "email" : "text",
         value: isLogin ? email : displayName,
-        placeholder: isLogin ? "name@example.com" : "Enter your full name",
+        placeholder: isLogin ? "kafy_ahmed@gmail.com" : "Enter your full name",
         name: isLogin ? "email" : "displayName",
         error: isLogin ? "Invalid email" : "Invalid full name",
         onChange: (e) => {
@@ -161,7 +161,7 @@ function AuthForm({ isLogin, setAuthenticated }) {
       {
         label: isLogin ? "Password" : "Email",
         type: isLogin ? "password" : "email",
-        placeholder: isLogin ? "min. 8 characters" : "Enter your email",
+        placeholder: isLogin ? "123456" : "Enter your email",
         name: isLogin ? "password" : "email",
         error: isLogin ? "Invalid password" : "Invalid email",
         onChange: (e) => {

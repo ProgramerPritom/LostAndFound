@@ -22,7 +22,12 @@ function HomePage() {
     "accessory",
   ]);
   const [selectedTags, setSelectedTags] = useState([]);
-  const [items, setItems] = useState(JSON.parse(localStorage.getItem("items")));
+  // const [items, setItems] = useState(JSON.parse(localStorage.getItem("items")));
+  const [items, setItems] = useState(() => {
+  const stored = localStorage.getItem("items");
+  return stored ? JSON.parse(stored) : [];
+});
+
 
   useEffect(() => {
     getItemFromFirestore().then((itemList) => {
